@@ -10,6 +10,12 @@ variable "app-name-direct" {
 variable "app-name-vm" {
   default = "webapp-vm"
 }
+variable "vmspoke-usr" {
+  description = "vmspoke username"
+}
+variable "vmspoke-pwd" {
+  description = "vmspoke password"
+}
 variable "vmspoke-publisher" {
     default = "bitnami"
 }

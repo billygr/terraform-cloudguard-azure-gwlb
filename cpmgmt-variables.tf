@@ -17,6 +17,9 @@ variable "mgmt-size" {
 variable "chkp-admin-usr" {
     default = "cpadmin"
 }
+variable "mgmt-admin-pwd" {
+    description = "The password of the mgmt admin"
+}
 variable "mgmt-sku-enabled" {
     description = "Have you ever deployed a ckp management before? set to false if not"
     type        = bool
