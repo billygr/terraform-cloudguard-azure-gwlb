@@ -1,11 +1,3 @@
-# Accept the agreement for the mgmt-byol for vmspoke image
-resource "azurerm_marketplace_agreement" "vmspoke-agreement" {
-  count = var.vmspoke-sku-enabled ? 0 : 1
-  publisher = var.vmspoke-publisher
-  offer = var.vmspoke-offer
-  plan = var.vmspoke-sku
-}
-
 resource "azurerm_resource_group" "rg-app-A" {
   name     = "rg-${var.app-name-con}"
   location = var.location
