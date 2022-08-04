@@ -12,7 +12,7 @@ variable "mgmt-version" {
 }
 variable "mgmt-size" {
     description = "Choose the vm-size to deploy"
-    default     = "Standard_D3_v2"
+    default     = "Standard_D2_v2"
 }
 variable "chkp-admin-usr" {
     default = "cpadmin"
