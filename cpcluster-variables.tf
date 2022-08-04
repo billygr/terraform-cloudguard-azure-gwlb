@@ -161,7 +161,7 @@ variable "lb_probe_port" {
 
 variable "lb_probe_protocol" {
   description = "Protocols to be used for load balancer health probes and rules"
-  default = "tcp"
+  default = "Tcp"
 }
 
 variable "lb_probe_unhealthy_threshold" {
