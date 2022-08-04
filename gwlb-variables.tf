@@ -11,7 +11,7 @@ variable gwlb-name {
 variable gwlb-size {
     description = "Choose the name"
     type        = string
-    default     = "Standard_DS2_v2"
+    default     = "Standard_DS1_v2"
 }
 variable gwlb-vmss-min {
     description = "The min number of gateways"
