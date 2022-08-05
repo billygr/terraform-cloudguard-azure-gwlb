@@ -61,12 +61,17 @@ If you want (or need) to further customize other project details, you can change
 Here you will also able to find the descriptions that explains what each variable is used for.
 
 ## IPs in use 
+```hcl
 ckpgwlbvmss000000 172.16.0.5
 ckpgwlbvmss000001 172.16.0.6
 
 
 cpcluster1 172.16.4.5
 cpcluster2 172.16.4.6
+```
+
+## Notes
+With reduced machine sizes in order to fit to the default limits per region, cpmgmt takes around 15 minutes in order to be ready to connect using SmartConsole
 
 ## The infrastruction created with the following design:
 ![Architectural Design](/zimages/azure-gwlb-design.jpg)
