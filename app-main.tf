@@ -251,8 +251,8 @@ resource "azurerm_virtual_machine" "vm-spoke" {
     }
     os_profile {
         computer_name  = "${var.app-name-vm}"
-		    admin_username = var.chkp-admin-usr
-        admin_password = var.chkp-admin-pwd
+        admin_username = var.vmspoke-usr
+        admin_password = var.vmspoke-pwd
     }
     os_profile_linux_config {
         disable_password_authentication = false
@@ -323,8 +323,8 @@ resource "azurerm_virtual_machine" "vm-spoke-C" {
   }
   os_profile {
     computer_name  = "${var.app-name-direct}"
-	  admin_username = var.chkp-admin-usr
-    admin_password = var.chkp-admin-pwd
+    admin_username = var.vmspoke-usr
+    admin_password = var.vmspoke-pwd
   }
   os_profile_linux_config {
     disable_password_authentication = false
