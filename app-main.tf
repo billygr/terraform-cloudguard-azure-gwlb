@@ -36,7 +36,6 @@ resource "azurerm_lb_backend_address_pool_address" "lb-backend-pool-addr" {
   depends_on = [azurerm_lb_backend_address_pool.lb-backend-pool]
 }
 resource "azurerm_lb_probe" "lb-backend-probe" {
-  resource_group_name = azurerm_resource_group.rg-app-A.name
   loadbalancer_id     = azurerm_lb.lb-app-A.id
   name                = "http-running-probe"
   port                = 3000
@@ -45,7 +44,6 @@ resource "azurerm_lb_probe" "lb-backend-probe" {
 }
 
 resource "azurerm_lb_rule" "lb-rule-3000" {
-  resource_group_name            = azurerm_resource_group.rg-app-A.name
   loadbalancer_id                = azurerm_lb.lb-app-A.id
   name                           = "LBRule3000"
   protocol                       = "Tcp"
@@ -58,7 +56,6 @@ resource "azurerm_lb_rule" "lb-rule-3000" {
   depends_on = [azurerm_lb.lb-app-A]
 }
 resource "azurerm_lb_rule" "lb-rule-80" {
-  resource_group_name            = azurerm_resource_group.rg-app-A.name
   loadbalancer_id                = azurerm_lb.lb-app-A.id
   name                           = "LBRule80"
   protocol                       = "Tcp"
@@ -92,7 +89,7 @@ resource "azurerm_container_group" "container-app-juiceshop" {
   location            = azurerm_resource_group.rg-app-A.location
   resource_group_name = azurerm_resource_group.rg-app-A.name
   os_type             = "Linux"
-  ip_address_type     = "private"
+  ip_address_type     = "Private"
   network_profile_id  = azurerm_network_profile.profile-app-juiceshop.id
 
   container {
@@ -152,7 +149,6 @@ resource "azurerm_lb_backend_address_pool_address" "lb-backend-pool-B-addr" {
   depends_on = [azurerm_lb_backend_address_pool.lb-backend-pool-B]
 }
 resource "azurerm_lb_probe" "lb-backend-probe-B" {
-  resource_group_name = azurerm_resource_group.rg-app-B.name
   loadbalancer_id     = azurerm_lb.lb-app-B.id
   name                = "http-running-probe"
   port                = 80
@@ -161,7 +157,6 @@ resource "azurerm_lb_probe" "lb-backend-probe-B" {
 }
 
 resource "azurerm_lb_rule" "lb-rule-B-80" {
-  resource_group_name            = azurerm_resource_group.rg-app-B.name
   loadbalancer_id                = azurerm_lb.lb-app-B.id
   name                           = "LBRule80"
   protocol                       = "Tcp"
