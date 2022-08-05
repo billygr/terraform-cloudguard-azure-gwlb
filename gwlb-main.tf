@@ -19,9 +19,6 @@ resource "azurerm_resource_group_template_deployment" "template-deployment-gwlb"
   template_content    = file("files/azure-gwlb-template.json")
   parameters_content  = <<PARAMETERS
   {
-    "subscriptionId": {
-        "value": "${var.azure-subscription}"
-    },
     "location": {
         "value": "${var.location}"
     },
@@ -123,9 +120,6 @@ resource "azurerm_resource_group_template_deployment" "template-deployment-gwlb"
     },
     "customMetrics": {
         "value": "yes"
-    },
-    "rbacGuid": {
-        "value": "1996c614-4e24-41f8-9515-fd3f99a814d2"
     },
     "vxlanTunnelExternalIdentifier": {
         "value": 801
