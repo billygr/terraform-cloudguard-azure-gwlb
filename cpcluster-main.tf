@@ -199,7 +199,6 @@ resource "azurerm_lb_backend_address_pool" "backend-lb-pool" {
 
 resource "azurerm_lb_probe" "azure_lb_healprob" {
   count = 2
-  resource_group_name = module.common.resource_group_name
   loadbalancer_id = count.index == 0 ? azurerm_lb.frontend-lb.id : azurerm_lb.backend-lb.id
   name = var.lb_probe_name
   protocol = var.lb_probe_protocol
@@ -327,7 +326,6 @@ resource "azurerm_virtual_machine" "vm-instance-availability-set" {
       bootstrap_script64 = base64encode(var.bootstrap_script)
       location = module.common.resource_group_location
       sic_key = var.sic_key
-      tenant_id = var.azure-tenant
       virtual_network = azurerm_virtual_network.vnet-south.name
       cluster_name = var.cluster_name
       external_private_addresses = azurerm_network_interface.nic_vip.ip_configuration[1].private_ip_address
@@ -416,7 +414,6 @@ resource "azurerm_virtual_machine" "vm-instance-availability-zone" {
       bootstrap_script64 = base64encode(var.bootstrap_script)
       location = module.common.resource_group_location
       sic_key = var.sic_key
-      tenant_id = var.azure-tenant
       virtual_network = azurerm_virtual_network.vnet-south.name
       cluster_name = var.cluster_name
       external_private_addresses = azurerm_network_interface.nic_vip.ip_configuration[1].private_ip_address
