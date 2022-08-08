@@ -22,7 +22,7 @@ The project creates the following resources and combine them:
 13. **Integrates GWLB with Application**: the deployed GWLB is set to protect the web applications
 
 ## How to use it
-The only thing that you need to do is changing the __*terraform.tfvars*__ file located in this directory.
+Change the relevant variables in the __*terraform.tfvars*__ file located in this directory.
 
 ```hcl
 # Set in this file your deployment variables
@@ -68,6 +68,20 @@ ckpgwlbvmss000001 172.16.0.6
 
 cpcluster1 172.16.4.5
 cpcluster2 172.16.4.6
+```
+
+## Manual configuration steps (will be automated in the feature)
+
+On your management server:
+
+Install a license for 172.16.8.4
+Install the CME script
+
+```hcl
+autoprov_cfg -f init Azure -mn ckpmgmt -tn az-ckpgwlbvmss -otp yourchkp-sicfromttfvar -ver R81.10 -po Standard \
+-cn Azure -sb azure-subscription  -at azure-tenant -aci azure-client-id   -acs azure-client-secret
+
+autoprov_cfg -f set template -tn az-ckpgwlbvmss -ips
 ```
 
 ## Notes
